@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script th:src="@{/js/jquery.autoKana.js}"></script>
+    <script type="text/javascript">
+    $(document).ready(
+        function() {
+            $.fn.autoKana('#kanji', '#kana', {
+                katakana : true  //true：カタカナ、false：ひらがな（デフォルト）
+        });
+    });
+</script>
+
     <title>ご本人情報の入力</title>
 
     <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
@@ -45,7 +56,7 @@
                                 <td>
                                     <p>例：ＴＩＳ　太郎</p>
                                     <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
-                                        <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                        <input type="text" name="kanjiName" id="kanji" th:value="${form.kanjiName}"/>
                                         <p th:if="${errors.hasError('kanjiName')}"
                                            th:text="${errors.getMessage('kanjiName')}" class="error-message">
                                         </p>
@@ -60,7 +71,7 @@
                                 <td>
                                     <p>例：ティーアイエス　タロウ</p>
                                     <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
-                                        <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                        <input type="text" name="kanaName" id="kana" th:value="${form.kanaName}"/>
                                         <p th:if="${errors.hasError('kanaName')}"
                                            th:text="${errors.getMessage('kanaName')}" class="error-message">
                                         </p>
@@ -296,14 +307,15 @@
 
                         <div class="ui column grid">
                             <div class="eight wide column left aligned">
+                                <button class="ui teal button angle left icon">次へ（お勤め先情報の入力）</button>
+                            </div>
+                            <div class="eight wide column right aligned">
                                 <!--/*戻る場合、formの送り先を強制的に書き換える*/-->
-                                <button class="ui button angle left icon"
+                                <button class="ui button angle right icon"
                                         onclick="form.action='/action/order/backToAccept';return true">戻る
                                 </button>
                             </div>
-                            <div class="eight wide column right aligned">
-                                <button class="ui teal button angle right icon">次へ（お勤め先情報の入力）</button>
-                            </div>
+
                         </div>
                     </form>
                 </div>
