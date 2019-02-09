@@ -54,7 +54,7 @@ public class UserForm implements Serializable {
     private String homePhoneNumber;
 
     /** 携帯電話番号 */
-    @Required
+    //@Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
