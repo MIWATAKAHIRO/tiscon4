@@ -43,13 +43,25 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ＴＩＳ　太郎</p>
-                                    <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
+                                    <!--div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
                                         <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
                                         <p th:if="${errors.hasError('kanjiName')}"
                                            th:text="${errors.getMessage('kanjiName')}" class="error-message">
                                         </p>
+                                    </div-->
+                                    <div class="field" th:classappend="${errors.hasError('kanjiMyoji')} ? 'error'">
+                                        氏: <input type="text" name="kanjiMyoji" th:value="${form.kanjiMyoji}"/>
+                                        <p th:if="${errors.hasError('kanjiMyoji')}"
+                                           th:text="${errors.getMessage('kanjiMyoji')}" class="error-message">
+                                        </p>
                                     </div>
+                                    <div class="field" th:classappend="${errors.hasError('kanjiNamae')} ? 'error'">
+                                        名: <input type="text" name="kanjiNamae" th:value="${form.kanjiNamae}"/>
+                                        <p th:if="${errors.hasError('kanjiNamae')}"
+                                           th:text="${errors.getMessage('kanjiNamae')}" class="error-message">
+                                        </p>
+                                    </div>
+
                                 </td>
                             </tr>
                             <tr>
