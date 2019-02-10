@@ -14,9 +14,18 @@ public class UserForm implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 漢字氏名 */
+//    @Required
+//    @Domain("kanjiName")
+//    private String kanjiName;
+
+    //add 2 lines
     @Required
-    @Domain("kanjiName")
-    private String kanjiName;
+    @Domain("kanjiMyoji")
+    private String kanjiMyoji;
+
+    @Required
+    @Domain("kanjiNamae")
+    private String kanjiNamae;
 
     /** カナ氏名 */
     @Required
@@ -54,7 +63,7 @@ public class UserForm implements Serializable {
     private String homePhoneNumber;
 
     /** 携帯電話番号 */
-    @Required
+    //@Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
@@ -91,13 +100,33 @@ public class UserForm implements Serializable {
     @Domain("medicalHistory")
     private String medicalHistory;
 
-    public String getKanjiName() {
-        return kanjiName;
+    public UserForm() {
     }
 
-    public void setKanjiName(String kanjiName) {
-        this.kanjiName = kanjiName;
+//    public String getKanjiName() {
+//        return kanjiName;
+//    }
+
+    // add 2 lines
+    public String getKanjiMyoji () {
+        return kanjiMyoji;
     }
+
+    public String getKanjiNamae () {
+        return kanjiNamae;
+    }
+
+    public void setKanjiMyoji(String kanjiMyoji) {
+        this.kanjiMyoji = kanjiMyoji;
+    }
+
+    public void setKanjiNamae(String kanjiNamae) {
+        this.kanjiNamae = kanjiNamae;
+    }
+
+//    public void setKanjiName(String kanjiName) {
+//        this.kanjiName = kanjiName;
+//    }
 
     public String getKanaName() {
         return kanaName;

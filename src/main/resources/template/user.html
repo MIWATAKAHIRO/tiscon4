@@ -54,13 +54,19 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ＴＩＳ　太郎</p>
-                                    <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
-                                        <input type="text" name="kanjiName" id="kanji" th:value="${form.kanjiName}"/>
-                                        <p th:if="${errors.hasError('kanjiName')}"
-                                           th:text="${errors.getMessage('kanjiName')}" class="error-message">
+                                    <div class="field" th:classappend="${errors.hasError('kanjiMyoji')} ? 'error'">
+                                        氏: <input type="text" name="kanjiMyoji" th:value="${form.kanjiMyoji}"/>
+                                        <p th:if="${errors.hasError('kanjiMyoji')}"
+                                           th:text="${errors.getMessage('kanjiMyoji')}" class="error-message">
                                         </p>
                                     </div>
+                                    <div class="field" th:classappend="${errors.hasError('kanjiNamae')} ? 'error'">
+                                        名: <input type="text" name="kanjiNamae" th:value="${form.kanjiNamae}"/>
+                                        <p th:if="${errors.hasError('kanjiNamae')}"
+                                           th:text="${errors.getMessage('kanjiNamae')}" class="error-message">
+                                        </p>
+                                    </div>
+
                                 </td>
                             </tr>
                             <tr>
@@ -86,7 +92,7 @@
                                 <td>
                                     <p>例：TIS TAROU</p>
                                     <div class="field" th:classappend="${errors.hasError('alphabetName')} ? 'error'">
-                                        <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
+                                        <input type="text" name="alphabetName" th:value="${form.alphabetName}" onInput="checkFrom1(this)"/>
                                         <p th:if="${errors.hasError('alphabetName')}"
                                            th:text="${errors.getMessage('alphabetName')}" class="error-message">
                                         </p>
@@ -94,7 +100,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                               <!-- --> <td>
                                     <label>性別</label>
                                     <p style="color:red;">＊</p>
                                 </td>
@@ -120,7 +126,7 @@
                                 <td>
                                     <p>例：1990/01/01</p>
                                     <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}" onInput="checkFrom2(this)"/>
                                         <p th:if="${errors.hasError('dateOfBirth')}"
                                            th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
                                         </p>
@@ -135,7 +141,7 @@
                                 <td>
                                     <p>例：123-4567</p>
                                     <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
-                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" onInput="checkFrom2(this)"/>
                                         <p th:if="${errors.hasError('zipCode')}"
                                            th:text="${errors.getMessage('zipCode')}" class="error-message">
                                         </p>
@@ -160,12 +166,12 @@
                             <tr>
                                 <td>
                                     <label>自宅電話番号（半角）</label>
-                                    <p style="color:red;">＊</p>
+                                    <!-- <p style="color:red;">*</p> -->
                                 </td>
                                 <td>
                                     <p>例：00-1111-2222</p>
                                     <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
-                                        <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                        <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}" onInput="checkFrom2(this)"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
                                            th:text="${errors.getMessage('homePhoneNumber')}" class="error-message">
                                         </p>
@@ -182,7 +188,7 @@
                                     <div class="field"
                                          th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
                                         <input type="text" name="mobilePhoneNumber"
-                                               th:value="${form.mobilePhoneNumber}"/>
+                                               th:value="${form.mobilePhoneNumber}" onInput="checkFrom2(this)"/>
                                         <p th:if="${errors.hasError('mobilePhoneNumber')}"
                                            th:text="${errors.getMessage('mobilePhoneNumber')}" class="error-message">
                                         </p>
@@ -228,7 +234,7 @@
                                 </td>
                                 <td>
                                     <div class="field" th:classappend="${errors.hasError('income')} ? 'error'">
-                                        <input type="text" class="number" name="income" th:value="${form.income}"/><span
+                                        <input type="text" class="number" name="income" th:value="${form.income}" onInput="checkFrom2(this)"/><span
                                             class="unit">万円</span>
                                         <p th:if="${errors.hasError('income')}" th:text="${errors.getMessage('income')}"
                                            class="error-message">
@@ -318,6 +324,30 @@
 
                         </div>
                     </form>
+
+                    <script type= "text/javascript">
+                    function checkFrom1($this)
+                    {
+                        var str=$this.value;
+                        while(str.match(/[^A-Z^a-z\d\-]/))
+                        {
+                            str=str.replace(/[^A-Z^a-z\d\-]/, "");
+                        }
+                        $this.value=str;
+                    }
+
+                    function checkFrom2($this)
+                    {
+                        var str=$this.value;
+                        while(str.match(/[^0-9\-\/]/))
+                        {
+                            str=str.replace(/[^0-9\-\/]/, "");
+                        }
+                        $this.value=str;
+                    }
+
+                    </script>
+
                 </div>
             </div>
         </div>
