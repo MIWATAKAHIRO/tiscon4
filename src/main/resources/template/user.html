@@ -3,6 +3,8 @@
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script th:src="@{/js/jquery.autoKana.js}"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
+
     <script type="text/javascript">
     $(document).ready(
         function() {
@@ -10,6 +12,7 @@
                 katakana : true  //true：カタカナ、false：ひらがな（デフォルト）
         });
     });
+
 </script>
 
     <title>ご本人情報の入力</title>
@@ -139,9 +142,9 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：123-4567</p>
+                                    <p>例：1234567</p>
                                     <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
-                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" onInput="checkFrom2(this)"/>
+                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" onInput="checkFrom2(this)"size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"/>
                                         <p th:if="${errors.hasError('zipCode')}"
                                            th:text="${errors.getMessage('zipCode')}" class="error-message">
                                         </p>
@@ -156,7 +159,7 @@
                                 <td>
                                     <p>例：東京都新宿区西新宿８－１７－１</p>
                                     <div class="field" th:classappend="${errors.hasError('address')} ? 'error'">
-                                        <input type="text" name="address" th:value="${form.address}"/>
+                                        <input type="text" name="address"  th:value="${form.address}"/>
                                         <p th:if="${errors.hasError('address')}"
                                            th:text="${errors.getMessage('address')}" class="error-message">
                                         </p>
