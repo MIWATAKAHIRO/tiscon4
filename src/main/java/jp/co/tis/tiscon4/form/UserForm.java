@@ -29,14 +29,20 @@ public class UserForm implements Serializable {
 
     /** カナ氏名 */
     @Required
-    @Domain("kanaName")
-    private String kanaName;
+    @Domain("kanaNamae")
+    private String kanaNamae;
 
-    /** 英字氏名 */
     @Required
-    @Domain("alphabetName")
-    private String alphabetName;
+    @Domain("kanaMyoji")
+    private String kanaMyoji;
+    /** 英字氏名 */
 
+    @Required
+    @Domain("alphabetNamae")
+    private String alphabetNamae;
+    @Required
+    @Domain("alphabetMyoji")
+    private String alphabetMyoji;
     /** 性別 */
     @Required
     @Domain("gender")
@@ -128,22 +134,30 @@ public class UserForm implements Serializable {
 //        this.kanjiName = kanjiName;
 //    }
 
-    public String getKanaName() {
-        return kanaName;
+    public String getKanaNamae() {
+        return kanaNamae;
     }
-
-    public void setKanaName(String kanaName) {
-        this.kanaName = kanaName;
+    public String getKanaMyoji() {
+        return kanaMyoji;
     }
-
-    public String getAlphabetName() {
-        return alphabetName;
+    public void setKanaNamae(String kanaNamae) {
+        this.kanaNamae = kanaNamae;
     }
-
-    public void setAlphabetName(String alphabetName) {
-        this.alphabetName = alphabetName;
+    public void setKanaMyoji(String kanaMyoji) {
+        this.kanaMyoji = kanaMyoji;
     }
-
+    public String getAlphabetNamae() {
+        return alphabetNamae;
+    }
+    public String getAlphabetMyoji() {
+        return alphabetMyoji;
+    }
+    public void setAlphabetNamae(String alphabetNamae) {
+        this.alphabetNamae = alphabetNamae;
+    }
+    public void setAlphabetMyoji(String alphabetMyoji) {
+        this.alphabetMyoji = alphabetMyoji;
+    }
     public String getDateOfBirth() {
         return dateOfBirth;
     }

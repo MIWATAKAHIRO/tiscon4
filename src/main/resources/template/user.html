@@ -8,13 +8,21 @@
     <script type="text/javascript">
     $(document).ready(
         function() {
-            $.fn.autoKana('#kanji', '#kana', {
+            $.fn.autoKana('#kanjiNamae', '#kanaNamae', {
                 katakana : true  //true：カタカナ、false：ひらがな（デフォルト）
         });
     });
 
 </script>
+    <script type="text/javascript">
+    $(document).ready(
+        function() {
+            $.fn.autoKana('#kanjiMyoji', '#kanaMyoji', {
+                katakana : true  //true：カタカナ、false：ひらがな（デフォルト）
+        });
+    });
 
+</script>
     <title>ご本人情報の入力</title>
 
     <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
@@ -58,13 +66,13 @@
                                 </td>
                                 <td>
                                     <div class="field" th:classappend="${errors.hasError('kanjiMyoji')} ? 'error'">
-                                        氏: <input type="text" name="kanjiMyoji" th:value="${form.kanjiMyoji}"/>
+                                        氏: <input type="text" name="kanjiMyoji" id="kanjiMyoji" th:value="${form.kanjiMyoji}"/>
                                         <p th:if="${errors.hasError('kanjiMyoji')}"
                                            th:text="${errors.getMessage('kanjiMyoji')}" class="error-message">
                                         </p>
                                     </div>
                                     <div class="field" th:classappend="${errors.hasError('kanjiNamae')} ? 'error'">
-                                        名: <input type="text" name="kanjiNamae" th:value="${form.kanjiNamae}"/>
+                                        名: <input type="text" name="kanjiNamae" id="kanjiNamae" th:value="${form.kanjiNamae}"/>
                                         <p th:if="${errors.hasError('kanjiNamae')}"
                                            th:text="${errors.getMessage('kanjiNamae')}" class="error-message">
                                         </p>
@@ -79,13 +87,13 @@
                                 </td>
                                 <td>
                                     <div class="field" th:classappend="${errors.hasError('kanaMyoji')} ? 'error'">
-                                        氏: <input type="text" name="kanaMyoji" th:value="${form.kanaMyoji}"/>
+                                        氏: <input type="text" name="kanaMyoji" id="kanaMyoji" th:value="${form.kanaMyoji}"/>
                                         <p th:if="${errors.hasError('kanaMyoji')}"
                                            th:text="${errors.getMessage('kanaMyoji')}" class="error-message">
                                         </p>
                                     </div>
                                     <div class="field" th:classappend="${errors.hasError('kanaNamae')} ? 'error'">
-                                        名: <input type="text" name="kanaNamae" th:value="${form.kanaNamae}"/>
+                                        名: <input type="text" name="kanaNamae" id="kanaNamae"  th:value="${form.kanaNamae}"/>
                                         <p th:if="${errors.hasError('kanaNamae')}"
                                            th:text="${errors.getMessage('kanaNamae')}" class="error-message">
                                         </p>
