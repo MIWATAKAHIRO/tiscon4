@@ -25,9 +25,9 @@ public class Tiscon4DomainBean {
     private String insuranceType;
 
     /** 漢字氏名 */
-    //@SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
-    //@Length(max = 60)
-    //private String kanjiName;
+    @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
+    @Length(max = 60)
+    private String kanjiName;
 
     @SystemChar(charsetDef = "全角文字", message = "domain.illegalCharacter")
     @Length(max=60)
