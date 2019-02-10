@@ -96,13 +96,13 @@
                                 </td>
                                 <td>
                                     <div class="field" th:classappend="${errors.hasError('alphabetMyoji')} ? 'error'">
-                                        氏: <input type="text" name="alphabetMyoji" th:value="${form.alphabetMyoji}"/>
+                                        氏: <input type="text" name="alphabetMyoji" th:value="${form.kanaMyoji}"/>
                                         <p th:if="${errors.hasError('alphabetMyoji')}"
                                            th:text="${errors.getMessage('alphabetMyoji')}" class="error-message">
                                         </p>
                                     </div>
                                     <div class="field" th:classappend="${errors.hasError('alphabetNamae')} ? 'error'">
-                                        名: <input type="text" name="alphabetNamae" th:value="${form.alphabetNamae}"/>
+                                        名: <input type="text" name="alphabetNamae" th:value="${form.kanaNamae}"/>
                                         <p th:if="${errors.hasError('alphabetNamae')}"
                                            th:text="${errors.getMessage('alphabetNamae')}" class="error-message">
                                         </p>
@@ -134,11 +134,22 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：1990/01/01</p>
-                                    <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}" onInput="checkFrom2(this)"/>
-                                        <p th:if="${errors.hasError('dateOfBirth')}"
-                                           th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
+                                    <div class="field" th:classappend="${errors.hasError('dateOfBirthYear')} ? 'error'">
+                                        西暦<input type="text" name="dateOfBirthYear" th:value="${form.dateOfBirthYear}" onInput="checkFrom2(this)"/>年
+                                        <p th:if="${errors.hasError('dateOfBirthYear')}"
+                                           th:text="${errors.getMessage('dateOfBirthYear')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="field" th:classappend="${errors.hasError('dateOfBirthMonth')} ? 'error'">
+                                        <input type="text" name="dateOfBirthMonth" th:value="${form.dateOfBirthMonth}" onInput="checkFrom2(this)"/>月
+                                        <p th:if="${errors.hasError('dateOfBirthMonth')}"
+                                           th:text="${errors.getMessage('dateOfBirthMonth')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="field" th:classappend="${errors.hasError('dateOfBirthDay')} ? 'error'">
+                                        <input type="text" name="dateOfBirthDay" th:value="${form.dateOfBirthDay}" onInput="checkFrom2(this)"/>日
+                                        <p th:if="${errors.hasError('dateOfBirthDay')}"
+                                           th:text="${errors.getMessage('dateOfBirthDay')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>
@@ -179,11 +190,26 @@
                                     <!-- <p style="color:red;">*</p> -->
                                 </td>
                                 <td>
-                                    <p>例：00-1111-2222</p>
-                                    <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
-                                        <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}" onInput="checkFrom2(this)"/>
-                                        <p th:if="${errors.hasError('homePhoneNumber')}"
-                                           th:text="${errors.getMessage('homePhoneNumber')}" class="error-message">
+                                    <!--p>例：00-1111-2222</p-->
+                                    <div class="numfield" th:classappend="${errors.hasError('homePhoneNumber1')} ? 'error'">
+                                        <!--div class="field" th:classappend="${errors.hasError('homePhoneNumber1')} ? 'error'"-->
+                                        <input type="text" name="homePhoneNumber1" th:value="${form.homePhoneNumber1}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('homePhoneNumber1')}"
+                                           th:text="${errors.getMessage('homePhoneNumber1')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="str">-</div>
+                                    <div class="numfield" th:classappend="${errors.hasError('homePhoneNumber2')} ? 'error'">
+                                        <input type="text" name="homePhoneNumber2" th:value="${form.homePhoneNumber2}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('homePhoneNumber2')}"
+                                           th:text="${errors.getMessage('homePhoneNumber2')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="str">-</div>
+                                    <div class="numfield" th:classappend="${errors.hasError('homePhoneNumber3')} ? 'error'">
+                                        <input type="text" name="homePhoneNumber3" th:value="${form.homePhoneNumber3}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('homePhoneNumber3')}"
+                                           th:text="${errors.getMessage('homePhoneNumber3')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>
@@ -194,13 +220,31 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：080-0000-0000</p>
-                                    <div class="field"
-                                         th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
-                                        <input type="text" name="mobilePhoneNumber"
-                                               th:value="${form.mobilePhoneNumber}" onInput="checkFrom2(this)"/>
-                                        <p th:if="${errors.hasError('mobilePhoneNumber')}"
-                                           th:text="${errors.getMessage('mobilePhoneNumber')}" class="error-message">
+                                    <!--p>例：080-0000-0000</p-->
+                                    <div class="numfield"
+                                         th:classappend="${errors.hasError('mobilePhoneNumber1')} ? 'error'">
+                                        <input type="text" name="mobilePhoneNumber1"
+                                               th:value="${form.mobilePhoneNumber1}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('mobilePhoneNumber1')}"
+                                           th:text="${errors.getMessage('mobilePhoneNumber1')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="str">-</div>
+                                    <div class="numfield"
+                                         th:classappend="${errors.hasError('mobilePhoneNumber2')} ? 'error'">
+                                        <input type="text" name="mobilePhoneNumber2"
+                                               th:value="${form.mobilePhoneNumber2}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('mobilePhoneNumber2')}"
+                                           th:text="${errors.getMessage('mobilePhoneNumber2')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="str">-</div>
+                                    <div class="numfield"
+                                         th:classappend="${errors.hasError('mobilePhoneNumber3')} ? 'error'">
+                                        <input type="text" name="mobilePhoneNumber3"
+                                               th:value="${form.mobilePhoneNumber3}" onInput="checkFrom2(this)"/>
+                                        <p th:if="${errors.hasError('mobilePhoneNumber3')}"
+                                           th:text="${errors.getMessage('mobilePhoneNumber3')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>
@@ -211,11 +255,18 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：tiscon@example.com</p>
-                                    <div class="field" th:classappend="${errors.hasError('emailAddress')} ? 'error'">
-                                        <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
-                                        <p th:if="${errors.hasError('emailAddress')}"
-                                           th:text="${errors.getMessage('emailAddress')}" class="error-message">
+                                    <!--p>例：tiscon@example.com</p-->
+                                    <div class="mailfield" th:classappend="${errors.hasError('emailUser')} ? 'error'">
+                                        <input type="text" name="emailUser" th:value="${form.emailUser}"/>
+                                        <p th:if="${errors.hasError('emailUser')}"
+                                           th:text="${errors.getMessage('emailUser')}" class="error-message">
+                                        </p>
+                                    </div>
+                                    <div class="str">@</div>
+                                    <div class="mailfield" th:classappend="${errors.hasError('emailDomain')} ? 'error'">
+                                        <input type="text" name="emailDomain" th:value="${form.emailDomain}"/>
+                                        <p th:if="${errors.hasError('emailDomain')}"
+                                           th:text="${errors.getMessage('emailDomain')}" class="error-message">
                                         </p>
                                     </div>
                                 </td>

@@ -14,9 +14,9 @@ public class UserForm implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 漢字氏名 */
-//    @Required
-//    @Domain("kanjiName")
-//    private String kanjiName;
+    //@Required
+    @Domain("kanjiName")
+    private String kanjiName;
 
     //add 2 lines
     @Required
@@ -28,14 +28,30 @@ public class UserForm implements Serializable {
     private String kanjiNamae;
 
     /** カナ氏名 */
-    @Required
+    //@Required
     @Domain("kanaName")
     private String kanaName;
 
-    /** 英字氏名 */
     @Required
+    @Domain("kanaMyoji")
+    private String kanaMyoji;
+
+    @Required
+    @Domain("kanaNamae")
+    private String kanaNamae;
+
+    /** 英字氏名 */
+    //@Required
     @Domain("alphabetName")
     private String alphabetName;
+
+    @Required
+    @Domain("alphabetMyoji")
+    private String alphabetMyoji;
+
+    @Required
+    @Domain("alphabetNamae")
+    private String alphabetNamae;
 
     /** 性別 */
     @Required
@@ -43,9 +59,21 @@ public class UserForm implements Serializable {
     private String gender;
 
     /** 生年月日 */
-    @Required
+    //@Required
     @Domain("dateOfBirth")
     private String dateOfBirth;
+
+    @Required
+    @Domain("dateOfBirthYear")
+    private String dateOfBirthYear;
+
+    @Required
+    @Domain("dateOfBirthMonth")
+    private String dateOfBirthMonth;
+
+    @Required
+    @Domain("dateOfBirthDay")
+    private String dateOfBirthDay;
 
     /** 郵便番号 */
     @Required
@@ -58,19 +86,51 @@ public class UserForm implements Serializable {
     private String address;
 
     /** 自宅電話番号 */
-    @Required
+    //@Required
     @Domain("homePhoneNumber")
     private String homePhoneNumber;
+
+    @Required
+    @Domain("homePhoneNumber1")
+    private String homePhoneNumber1;
+
+    @Required
+    @Domain("homePhoneNumber2")
+    private String homePhoneNumber2;
+
+    @Required
+    @Domain("homePhoneNumber3")
+    private String homePhoneNumber3;
 
     /** 携帯電話番号 */
     //@Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
-    /** メールアドレス */
     @Required
+    @Domain("mobilePhoneNumber1")
+    private String mobilePhoneNumber1;
+
+    @Required
+    @Domain("mobilePhoneNumber2")
+    private String mobilePhoneNumber2;
+
+    @Required
+    @Domain("mobilePhoneNumber3")
+    private String mobilePhoneNumber3;
+
+    /** メールアドレス */
+    //@Required
     @Domain("emailAddress")
     private String emailAddress;
+
+    @Required
+    @Domain("emailUser")
+    private String emailUser;
+
+    @Required
+    @Domain("emailDomain")
+    private String emailDomain;
 
     /** 配偶者有無 */
     @Required
@@ -103,9 +163,13 @@ public class UserForm implements Serializable {
     public UserForm() {
     }
 
-//    public String getKanjiName() {
-//        return kanjiName;
-//    }
+    public String getKanjiName() {
+        return kanjiName;
+    }
+
+    public void setKanjiName(String kanjiName) {
+        this.kanjiName = kanjiName;
+    }
 
     // add 2 lines
     public String getKanjiMyoji () {
@@ -124,16 +188,29 @@ public class UserForm implements Serializable {
         this.kanjiNamae = kanjiNamae;
     }
 
-//    public void setKanjiName(String kanjiName) {
-//        this.kanjiName = kanjiName;
-//    }
+    public void setKanaMyoji(String kanaMyoji) {
+       this.kanaMyoji = kanaMyoji;
+    }
 
-    public String getKanaName() {
-        return kanaName;
+    public String getKanaMyoji() {
+        return kanaMyoji;
+    }
+
+
+    public String getKanaNamae() {
+        return kanaNamae;
+    }
+
+    public void setKanaNamae(String kanaNamae) {
+        this.kanaNamae = kanaNamae;
     }
 
     public void setKanaName(String kanaName) {
-        this.kanaName = kanaName;
+        this.kanjiName = kanaName;
+    }
+
+    public String getKanaName() {
+        return kanaName;
     }
 
     public String getAlphabetName() {
@@ -144,12 +221,51 @@ public class UserForm implements Serializable {
         this.alphabetName = alphabetName;
     }
 
+    public String getAlphabetMyoji() {
+        return alphabetMyoji;
+    }
+
+    public void setAlphabetMyoji(String alphabetMyoji) {
+        this.alphabetMyoji = alphabetMyoji;
+    }
+
+    public String getAlphabetNamae() {
+        return alphabetNamae;
+    }
+
+    public void setAlphabetNamae(String alphabetNamae) {
+        this.alphabetNamae = alphabetNamae;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDateOfBirthYear() {
+        return dateOfBirthYear;
+    }
+
+    public void setDateOfBirthYear(String dateOfBirthYear) {
+        this.dateOfBirthYear = dateOfBirthYear;
+    }
+    public String getDateOfBirthMonth() {
+        return dateOfBirthMonth;
+    }
+
+    public void setDateOfBirthMonth(String dateOfBirthMonth) {
+        this.dateOfBirthMonth = dateOfBirthMonth;
+    }
+
+    public String getDateOfBirthDay() {
+        return dateOfBirthDay;
+    }
+
+    public void setDateOfBirthDay(String dateOfBirthDay) {
+        this.dateOfBirthDay = dateOfBirthDay;
     }
 
     public String getGender() {
@@ -184,6 +300,30 @@ public class UserForm implements Serializable {
         this.homePhoneNumber = homePhoneNumber;
     }
 
+    public String getHomePhoneNumber1() {
+        return homePhoneNumber1;
+    }
+
+    public void setHomePhoneNumber1(String homePhoneNumber1) {
+        this.homePhoneNumber1 = homePhoneNumber1;
+    }
+
+    public String getHomePhoneNumber2() {
+        return homePhoneNumber2;
+    }
+
+    public void setHomePhoneNumber2(String homePhoneNumber2) {
+        this.homePhoneNumber2 = homePhoneNumber2;
+    }
+
+    public String getHomePhoneNumber3() {
+        return homePhoneNumber3;
+    }
+
+    public void setHomePhoneNumber3(String homePhoneNumber3) {
+        this.homePhoneNumber3 = homePhoneNumber3;
+    }
+
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
@@ -192,12 +332,52 @@ public class UserForm implements Serializable {
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
 
+    public String getMobilePhoneNumber1() {
+        return mobilePhoneNumber1;
+    }
+
+    public void setMobilePhoneNumber1(String mobilePhoneNumber1) {
+        this.mobilePhoneNumber1 = mobilePhoneNumber1;
+    }
+
+    public String getMobilePhoneNumber2() {
+        return mobilePhoneNumber2;
+    }
+
+    public void setMobilePhoneNumber2(String mobilePhoneNumber2) {
+        this.mobilePhoneNumber2 = mobilePhoneNumber2;
+    }
+
+    public String getMobilePhoneNumber3() {
+        return mobilePhoneNumber3;
+    }
+
+    public void setMobilePhoneNumber3(String mobilePhoneNumber3) {
+        this.mobilePhoneNumber3 = mobilePhoneNumber3;
+    }
+
     public String getEmailAddress() {
         return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
+
+    public String getEmailDomain() {
+        return emailDomain;
+    }
+
+    public void setEmailDomain(String emailDomain) {
+        this.emailDomain = emailDomain;
     }
 
     public String getMarried() {

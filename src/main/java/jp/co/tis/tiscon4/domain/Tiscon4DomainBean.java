@@ -25,9 +25,9 @@ public class Tiscon4DomainBean {
     private String insuranceType;
 
     /** 漢字氏名 */
-    //@SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
-    //@Length(max = 60)
-    //private String kanjiName;
+    @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
+    @Length(max = 60)
+    private String kanjiName;
 
     @SystemChar(charsetDef = "全角文字", message = "domain.illegalCharacter")
     @Length(max=60)
@@ -42,10 +42,26 @@ public class Tiscon4DomainBean {
     @Length(max = 90)
     private String kanaName;
 
+    @SystemChar(charsetDef = "全角カタカナスペース", message = "{domain.illegalCharacter}")
+    @Length(max = 90)
+    private String kanaMyoji;
+
+    @SystemChar(charsetDef = "全角カタカナスペース", message = "{domain.illegalCharacter}")
+    @Length(max = 90)
+    private String kanaNamae;
+
     /** 英字氏名 */
     @SystemChar(charsetDef = "半角英字スペース", message = "{domain.illegalCharacter}")
     @Length(max = 120)
     private String alphabetName;
+
+    @SystemChar(charsetDef = "半角英字スペース", message = "{domain.illegalCharacter}")
+    @Length(max = 120)
+    private String alphabetMyoji;
+
+    @SystemChar(charsetDef = "半角英字スペース", message = "{domain.illegalCharacter}")
+    @Length(max = 120)
+    private String alphabetNamae;
 
     /** 性別 */
     @CodeValue(enumClass = GenderType.class)
@@ -54,6 +70,12 @@ public class Tiscon4DomainBean {
     /** 生年月日 */
     @YYYYMMDD()
     private String dateOfBirth;
+
+    private String dateOfBirthYear;
+
+    private String dateOfBirthMonth;
+
+    private String dateOfBirthDay;
 
     /** 郵便番号 */
     @ZipNumber
@@ -68,14 +90,32 @@ public class Tiscon4DomainBean {
     @JapaneseTelNumber()
     private String homePhoneNumber;
 
+    private String homePhoneNumber1;
+
+    private String homePhoneNumber2;
+
+    private String homePhoneNumber3;
+
     /** 携帯電話番号 */
     @JapaneseTelNumber()
     private String mobilePhoneNumber;
+
+    private String mobilePhoneNumber1;
+
+    private String mobilePhoneNumber2;
+
+    private String mobilePhoneNumber3;
 
     /** メールアドレス */
     @MailAddress()
     @Length(max = 255)
     private String emailAddress;
+
+    @Length(max = 255)
+    private String emailUser;
+
+    @Length(max = 255)
+    private String emailDomain;
 
     /** 配偶者有無 */
     @CodeValue(enumClass = MarriedType.class)

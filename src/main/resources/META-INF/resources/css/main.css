@@ -48,6 +48,20 @@ ul.label {
     text-align: left;
 }
 
+.numfield {
+    float: left;
+    width: 20%;
+}
+
+.mailfield {
+    float: left;
+    width: 40%;
+}
+
+.str {
+    float: left;
+}
+
 .number {
     text-align: right;
     vertical-align: middle !important;
